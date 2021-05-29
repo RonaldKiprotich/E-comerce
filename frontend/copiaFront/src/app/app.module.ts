@@ -9,6 +9,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './components/products/products.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductsComponent } from './components/products/products.component';
     DashboardComponent,
     RegisterComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

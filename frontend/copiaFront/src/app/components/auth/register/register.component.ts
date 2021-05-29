@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       last_name: [null, [Validators.required]],
       gender: [null, [Validators.required]],
       date_of_birth: [null, [Validators.required]],
-      profile_picture: [null, [Validators.required]],
+     
       
     });
   }
