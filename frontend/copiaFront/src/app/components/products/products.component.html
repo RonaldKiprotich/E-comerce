@@ -11,9 +11,9 @@
               <button type="button" class="btn btn-outline-success ">search</button>
             </div>
 
-            <div class="row">
-              <div class="col-md">
-                <div class="card">
+            <!-- <div class="row">
+              <div class="col-md" *ngFor="let x of products">
+                <div class="card" >
                   <img
                     src="https://copia.co.ke/wp-content/uploads/2019/07/Farm.png"
                     class="card-img-top"
@@ -32,45 +32,34 @@
                 </div>
       
               </div>
-              <div class="col-md">
-                <div class="card">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Aq3UMeHmu58NhbKGEad0nn0d6ZdCLDfJAA&usqp=CAU"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Fresh Produce</h5>
-                    <p class="card-text">
-                      
-                    </p>
-                    <div class="btn btn-success btn-lg btn-flat">
-                      <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
-                      Add to Cart
-                    </font></font></div>
-                  </div>
+              
+            </div> -->
+
+            <div *ngFor="let x of products">
+
+              <div class="card" >
+                <img
+                  src="{{x.url}}"
+                  class="card-img-top " width="40px" height="500px"
+                  alt="..."
+                />
+                <div class="card-body">
+                  
+                  <h5 class="card-title">{{x.name}} - </h5>
+                  <h5 class="card-title">{{x.desc}}</h5>
+
+                  <p class="card-text">
+                    
+                  </p>
+                  <div class="btn btn-success btn-lg btn-flat">
+                    <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    Add to Cart
+                  </font></font></div>
                 </div>
-      
               </div>
-              <div class="col-md">
-                <div class="card">
-                  <img
-                    src="https://copia.co.ke/wp-content/uploads/2019/07/Electronics.png"
-                    class="card-img-top"
-                    alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Kitchen Items</h5>
-                    <p class="card-text">
-                      
-                    </p>
-                    <div class="btn btn-success btn-lg btn-flat">
-                      <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
-                      Add to Cart
-                    </font></font></div>
-                  </div>
-                </div>
-      
-              </div>
+
+              {{x.name}}
+
             </div>
           </div>
           
