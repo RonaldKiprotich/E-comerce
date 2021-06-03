@@ -1,70 +1,68 @@
-
-        
-
-
-
-          <div class="container">
-
-            <div class="input-group ">
-              <input type="search" class="form-control rounded w-25 p-3 " placeholder="Search" aria-label="Search"
-                aria-describedby="search-addon" />
-              <button type="button" class="btn btn-outline-success ">search</button>
-            </div>
-
-            <!-- <div class="row">
-              <div class="col-md" *ngFor="let x of products">
-                <div class="card" >
-                  <img
-                    src="https://copia.co.ke/wp-content/uploads/2019/07/Farm.png"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Farm tools</h5>
-                    <p class="card-text">
-                      
-                    </p>
-                    <div class="btn btn-success btn-lg btn-flat">
-                      <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
-                      Add to Cart
-                    </font></font></div>
-                  </div>
-                </div>
-      
-              </div>
-              
-            </div> -->
-
-            <div *ngFor="let x of products">
-
-              <div class="card" >
-                <img
-                  src="{{x.url}}"
-                  class="card-img-top " width="40px" height="500px"
-                  alt="..."
-                />
-                <div class="card-body">
-                  
-                  <h5 class="card-title">{{x.name}} - </h5>
-                  <h5 class="card-title">{{x.desc}}</h5>
-
-                  <p class="card-text">
-                    
-                  </p>
-                  <div class="btn btn-success btn-lg btn-flat">
-                    <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
-                    Add to Cart
-                  </font></font></div>
-                </div>
-              </div>
-
-              {{x.name}}
-
-            </div>
-          </div>
-          
+<div class="container">
+  <div class="row">
+    <div class="col-12 pt-2 pb-2">
+      <div class="input-group ">
+        <input (keyup)="search($event.target.value)" type="search" class="form-control rounded w-25 p-3 mr-3 " placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#cart-modal">Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6" *ngFor="let x of products">
+      <div class="card pl-2 pr-2">
+        <img src="{{x.url}}" class="card-img-top img-product" width="40px" height="500px" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{x.name}} - {{x.desc}}</h5>
+          <p class="card-text">
+            Ksh. {{x.price}}
+          </p>
+          <button (click)="buy(x.id)" class="btn btn-success btn-sm btn-block btn-flat">
+            <i class="fas fa-cart-plus fa-lg mr-2"></i>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">
+                Add to Cart
+              </font>
+            </font>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-
-          
- 
+  <!-- Cart -->
+  <div class="modal fade" id="cart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cart Items</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="w-100">
+            <thead>
+              <th>Item</th>
+              <th>Size</th>
+              <th>Price</th>
+            </thead>
+            <tr *ngFor="let x of cart">
+              <td class="ml-2 mr-2">{{x.name}}</td>
+              <td class="ml-2 mr-2">{{x.desc}}</td>
+              <td class="ml-2 mr-2">Ksh. {{x.price}}</td>
+              <td><button (click)="remove_item(x.id)" class="btn btn-sm btn-danger">remove</button></td>
+            </tr>
+            <tr>
+              <td>Total Price: </td>
+              <td>Ksh. {{total}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>

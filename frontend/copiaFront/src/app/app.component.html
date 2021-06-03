@@ -22,18 +22,18 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link" data-slide="true" href="/login" role="button">
           Login
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"  *ngIf="!isLoggedIn">
         <a class="nav-link" data-slide="true" href="/register" role="button">
           Register
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" role="button">
+      <li class="nav-item"  *ngIf="isLoggedIn">
+        <a class="nav-link" role="button" (click)="logout()">
           Logout
         </a>
       </li>

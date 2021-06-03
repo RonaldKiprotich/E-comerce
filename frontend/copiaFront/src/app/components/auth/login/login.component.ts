@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
           if(this.response.status==0){
           
            this.storage.store('user',this.response.user)
-           this.storage.store('token',this.response.token)
-           this.router.navigate(['dashboard'])
+           this.storage.store('token',this.response.token)           
+           window.location.replace('/dashboard')
           }else{
             alert(this.response.error)
           }
