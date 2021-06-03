@@ -1,8 +1,21 @@
 const Joi = require('joi');
 const UtilService = require("../services/utilityService")
-const JWTService = require("../services/jwtService")
+const JWTService = require("../services/jwtService");
+
 
 module.exports = {
+
+    get: async function (req, res) {
+     var user=await User.findOne({id:req.params.id})
+     
+     return res.ok(user)
+    },
+
+    getAll: async function (req, res) {
+        var user=await User.find()
+        
+        return res.ok(user)
+       },
 
     login: async function (req, res) {
         try {
@@ -51,6 +64,8 @@ module.exports = {
                     gender: params.value['gender'],
                     date_of_birth: params.value['date_of_birth'],
                     profile_picture: params.value['profile_picture'],
+                    active:true
+                    
                 }).fetch();
                 return res.ok({status: 0, user: results})
             }
@@ -75,7 +90,7 @@ const schema = Joi.object({
     last_name: Joi.string().trim(),
     gender: Joi.string().trim(),
     date_of_birth: Joi.string().trim(),
-    profile_picture: Joi.string().trim(),
+    
     //active: Joi.boolean().trim(),
 })
 

@@ -31,17 +31,17 @@ module.exports = {
      },
      profile_picture: {     
       type: 'string',
-      required: true,
+      
      },
      gender: {     
       type: 'string',
       required: true,
      },
-     //active: {     
-      //type: 'boolean',
-      //required: true,
-     //},
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+     active: {     
+    type: 'boolean',
+      required: true,
+     },
+    
 
   },
 
