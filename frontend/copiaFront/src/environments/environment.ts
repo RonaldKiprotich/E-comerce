@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:1337',
+  base_url: 'https://rayecom.herokuapp.com',
 };
 
 /*
